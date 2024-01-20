@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package network.msg;
+
+import "cmd-schemas.proto";
+import "msg-schemas.proto";
+
+option java_package = "fes.generated";
+option java_outer_classname = "GenericOuterClass";
+option java_multiple_files = true;
+
+message GenericPacket {
+  enum GenericType {
+    REQUEST = 0;
+    RESPONSE = 1;
+  }
+
+  GenericType type = 1;
+
+  optional network.cmd.RequestCmd request = 2;
+  optional network.msg.ResponseMsg response = 3;
+}

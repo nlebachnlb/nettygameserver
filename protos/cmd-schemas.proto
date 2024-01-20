@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package network.cmd;
+
+option java_package = "fes.generated.cmd";
+option java_outer_classname = "CmdOuterClass";
+option java_multiple_files = true;
+
+message GetUserInfoFromIdCmd {
+  uint32 id = 1;
+}
+
+message RequestCmd {
+  uint32 cmd = 1;
+
+  optional GetUserInfoFromIdCmd userInfoFromId = 2;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package network.msg;
+
+option java_package = "fes.generated.msg";
+option java_outer_classname = "MsgOuterClass";
+option java_multiple_files = true;
+
+message GetUserInfoFromIdMsg {
+  uint32 id = 1;
+}
+
+message ResponseMsg {
+  uint32 cmd = 1;
+
+  optional GetUserInfoFromIdMsg userInfoFromId = 2;
+}

@@ -1,0 +1,176 @@
+<mxfile host="Electron" modified="2024-01-20T17:22:14.497Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="M1uyA6IbZ0KFHzARcYLH" version="22.1.21" type="device">
+  <diagram name="Page-1" id="oCmPjOVurKxj3lP-_yKZ">
+    <mxGraphModel dx="1895" dy="2472" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-8" value="Protobuf Schemas" style="swimlane;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="-200" width="490" height="270" as="geometry">
+            <mxRectangle x="10" y="160" width="150" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-2" value="GenericPacket" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=7;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-8">
+          <mxGeometry x="160" y="40" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-3" value="+ PacketType type&lt;br&gt;+ RequestCmd request&lt;br&gt;+ ResponseMsg response" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;rounded=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-2">
+          <mxGeometry y="30" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-4" value="RequestCmd" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=7;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-8">
+          <mxGeometry x="30" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-5" value="+ uint32 cmdId&lt;br&gt;+ ... other cmd schema included ..." style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;rounded=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-4">
+          <mxGeometry y="30" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-6" value="ResponseMsg" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=7;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-8">
+          <mxGeometry x="260" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-7" value="+ uint32 cmdId&lt;br&gt;+ ... other msg schema included ..." style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;rounded=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-6">
+          <mxGeometry y="30" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-19" value="Pipeline" style="swimlane;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="-460" y="-250" width="280" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-10" value="&amp;lt;FrameDecoder&amp;gt;&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;sup style=&quot;font-size: 12px;&quot;&gt;LenghFieldBasedFrameDecoder&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/sup&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-19">
+          <mxGeometry x="40" y="50" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-11" value="&lt;sup style=&quot;font-size: 12px;&quot;&gt;ProtobufDecoder&lt;br style=&quot;font-size: 12px;&quot;&gt;(&lt;b&gt;GenericPacket&lt;/b&gt;.getDefaultInstance())&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/sup&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-19">
+          <mxGeometry x="40" y="170" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="H2OPCseUjv-m_Hl-uJ4J-19" source="H2OPCseUjv-m_Hl-uJ4J-10" target="H2OPCseUjv-m_Hl-uJ4J-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-12" value="&lt;sup style=&quot;font-size: 12px;&quot;&gt;ProtobufEncoder&lt;br style=&quot;font-size: 12px;&quot;&gt;()&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/sup&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-19">
+          <mxGeometry x="40" y="410" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="H2OPCseUjv-m_Hl-uJ4J-19" source="H2OPCseUjv-m_Hl-uJ4J-13" target="H2OPCseUjv-m_Hl-uJ4J-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-13" value="&amp;lt;FrameEncoder&amp;gt;&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;sup style=&quot;font-size: 12px;&quot;&gt;LengthFieldPrepender&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/sup&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-19">
+          <mxGeometry x="45" y="300" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="H2OPCseUjv-m_Hl-uJ4J-19" source="H2OPCseUjv-m_Hl-uJ4J-11" target="H2OPCseUjv-m_Hl-uJ4J-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-14" value="&lt;sup style=&quot;font-size: 12px;&quot;&gt;&amp;lt;Server Generic Handler&amp;gt;&lt;br&gt;GenericHandler&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/sup&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-19">
+          <mxGeometry x="40" y="530" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="H2OPCseUjv-m_Hl-uJ4J-19" source="H2OPCseUjv-m_Hl-uJ4J-12" target="H2OPCseUjv-m_Hl-uJ4J-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-29" value="`" style="edgeStyle=none;shape=connector;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="H2OPCseUjv-m_Hl-uJ4J-20" target="H2OPCseUjv-m_Hl-uJ4J-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-30" value="notify" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontFamily=Helvetica;fontColor=default;" vertex="1" connectable="0" parent="H2OPCseUjv-m_Hl-uJ4J-29">
+          <mxGeometry x="-0.1628" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-20" value="GenericHandler" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="-240" y="-910" width="340" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-21" value="- static final ChannelGroup channels" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-20">
+          <mxGeometry y="26" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-22" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;rounded=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-20">
+          <mxGeometry y="52" width="340" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-23" value="+ channelRead(ChannelHandlerContext ctx, Object msg)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-20">
+          <mxGeometry y="60" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-40" value="+ handlerAdded" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-20">
+          <mxGeometry y="86" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-41" value="+ handlerRemoved" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-20">
+          <mxGeometry y="112" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-26" value="Parse msg sang GenericPacket&lt;br&gt;Phân loại gói (request hay response)&lt;br&gt;Phân loại cmd&lt;br&gt;Parse thành các object cmd tương ứng&lt;br&gt;Bắn event kèm object cmd&amp;nbsp;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="-570" y="-885" width="240" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-27" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="H2OPCseUjv-m_Hl-uJ4J-23" target="H2OPCseUjv-m_Hl-uJ4J-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-28" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;SubHandler&amp;lt;T&amp;gt;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;where T: RequestCmd&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ onReceiveCmd(Channel channel, T cmd)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ onReceiveError(Channel channel, int errorCode)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;rounded=1;fontColor=default;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="-210" y="-660" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-32" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Service&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;rounded=1;fontColor=default;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="-210" y="-460" width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-33" value="`" style="edgeStyle=none;shape=connector;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="H2OPCseUjv-m_Hl-uJ4J-28" target="H2OPCseUjv-m_Hl-uJ4J-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-80" y="-520" as="sourcePoint" />
+            <mxPoint x="-80" y="-456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-34" value="dependency" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontFamily=Helvetica;fontColor=default;" vertex="1" connectable="0" parent="H2OPCseUjv-m_Hl-uJ4J-33">
+          <mxGeometry x="-0.1628" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-36" value="MsgService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="-455" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-38" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;rounded=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-36">
+          <mxGeometry y="26" width="340" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-39" value="+ send(int userId, protobuf.Message msg)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-36">
+          <mxGeometry y="34" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-42" value="Quản lý các connection" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="275" y="-840" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-43" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="H2OPCseUjv-m_Hl-uJ4J-40" target="H2OPCseUjv-m_Hl-uJ4J-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-230" y="-827" as="sourcePoint" />
+            <mxPoint x="-320" y="-827" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-45" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;shape=connector;" edge="1" parent="1" source="H2OPCseUjv-m_Hl-uJ4J-36" target="H2OPCseUjv-m_Hl-uJ4J-32">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="100" y="-590" as="sourcePoint" />
+            <mxPoint x="260" y="-590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-56" value="implements" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontFamily=Helvetica;fontColor=default;" vertex="1" connectable="0" parent="H2OPCseUjv-m_Hl-uJ4J-45">
+          <mxGeometry x="0.001" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-46" value="ConnectionManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="-669" width="340" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-48" value="- Map&amp;lt;String, Integer&amp;gt; channelToUserId" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-46">
+          <mxGeometry y="26" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-53" value="- Map&amp;lt;Integer, Channel&amp;gt; userIdToChannel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-46">
+          <mxGeometry y="52" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-47" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;rounded=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-46">
+          <mxGeometry y="78" width="340" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-50" value="+ onIncomingConnection(Channel ch, int userId)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-46">
+          <mxGeometry y="86" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-52" value="+ Channel getUserConnection(int userId)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="H2OPCseUjv-m_Hl-uJ4J-46">
+          <mxGeometry y="112" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-51" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="H2OPCseUjv-m_Hl-uJ4J-46" target="H2OPCseUjv-m_Hl-uJ4J-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="-800" as="sourcePoint" />
+            <mxPoint x="240" y="-800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-54" value="`" style="edgeStyle=none;shape=connector;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="H2OPCseUjv-m_Hl-uJ4J-20" target="H2OPCseUjv-m_Hl-uJ4J-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-60" y="-762" as="sourcePoint" />
+            <mxPoint x="-60" y="-650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2OPCseUjv-m_Hl-uJ4J-55" value="dependency" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontFamily=Helvetica;fontColor=default;" vertex="1" connectable="0" parent="H2OPCseUjv-m_Hl-uJ4J-54">
+          <mxGeometry x="-0.1628" y="3" relative="1" as="geometry">
+            <mxPoint x="2" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
